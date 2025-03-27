@@ -22,6 +22,17 @@ int main()
     Dog d1;
     Dog* d2 = new Dog();
 
-    d1.play();
-    d2->play();
+    
+    d1.age = 1;
+    d2->age = 2;
+
+    cout << d1.age << endl;
+    cout << d2->age << endl;
+    cout << "d1이 " << d1.play() << endl;
+    cout << "d2가 " << d2->play() << endl; ;
+    
+
+    free(d2);
+
+    return 0;
 }
