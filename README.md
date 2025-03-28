@@ -23,7 +23,7 @@
 4. 깊은복사(Deep Copy) 얇은복사(Shallow Copy)
 
 
-# SOLID 원칙 요약 정리
+## SOLID 원칙 요약 정리
 
 **SOLID**는 객체지향 설계의 5가지 핵심 원칙으로, 유지보수성, 확장성, 유연성을 높이는 데 목적이 있습니다.  
 로버트 C. 마틴(Robert C. Martin, aka Uncle Bob)이 제안한 원칙입니다.
