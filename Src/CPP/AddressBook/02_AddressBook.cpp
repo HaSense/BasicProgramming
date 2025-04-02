@@ -122,7 +122,7 @@ int main()
             int modifyNo = atoi(input.c_str());
 
             bool found = false;
-            for (Person person : addressbook) {
+            for (Person& person : addressbook) {
                 if (person.getNo() == modifyNo) {
                     string newName, newPhone;
 
