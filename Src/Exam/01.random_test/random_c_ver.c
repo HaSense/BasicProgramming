@@ -5,7 +5,7 @@
 int main()
 {
     int arr[5];
-    //srand((unsigned int)time(0)); // 랜덤 시드 초기화
+    //srand((unsigned int)time(0)); // 랜덤 시드 초기화 NULL 키워드는 정수 0과 같다
     srand((unsigned int)(time(0) ^ clock()));// 정확한 랜덤
 
     //랜덤한 수 10개 생성
