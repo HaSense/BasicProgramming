@@ -60,7 +60,7 @@ int main()
         int number = atoi(input.c_str()); //cstdlib에서 string을 char배열로 만들어줌
 
         switch (number)
-        { 
+        {
         case 1: {
             int no;
             string name;
@@ -144,12 +144,14 @@ int main()
                 cout << "해당 번호를 가진 데이터를 찾을 수 없습니다." << endl;
             }
             break;
+        }
 
-        case 5:
+        case 5:{
             cout << "프로그램이 안전하게 종료되었습니다!" << endl;
             quick_exit(1);
-
         }
+
+        
 
         default:
             cout << "올바른 메뉴를 선택하세요." << endl;
