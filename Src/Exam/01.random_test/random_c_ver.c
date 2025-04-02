@@ -5,8 +5,8 @@
 int main()
 {
     int arr[5];
-    //srand((unsigned int)time()); // 랜덤 시드 초기화
-    srand((unsigned int)(time() ^ clock()));// 정확한 랜덤
+    //srand((unsigned int)time(0)); // 랜덤 시드 초기화
+    srand((unsigned int)(time(0) ^ clock()));// 정확한 랜덤
 
     //랜덤한 수 10개 생성
     for (int i = 0; i < 10; ++i) {
