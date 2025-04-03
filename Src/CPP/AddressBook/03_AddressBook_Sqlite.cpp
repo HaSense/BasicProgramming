@@ -112,6 +112,8 @@ public:
         cout << "\n현재 주소록 정보:\n";
         while (sqlite3_step(stmt) == SQLITE_ROW) 
         {
+            //가장 중요한 코드가 DBMS(Sqlite3)에서 가져온 데이터를 C++에 맞추어 받는 것입니다.
+            //그래서 가장 안전한 타입이나 호환되는 타입으로 받으면 됩니다.
             int no = sqlite3_column_int(stmt, 0);
             string name = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 1));
             string phone = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 2));
