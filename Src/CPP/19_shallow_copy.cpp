@@ -6,35 +6,37 @@ using namespace std;
 class Book {
 public:
     char* title;
+    bool is_owner;
 
     // 생성자
     Book(const char* t) {
-        title = new char[strlen(t) + 1];
-        strcpy(title, t);
+        size_t len = strlen(t) + 1;
+        title = new char[len];
+        strcpy_s(title, len, t); // 안전한 문자열 복사
+        is_owner = true;
     }
 
     // 얕은 복사 생성자
     Book(const Book& other) {
-        title = other.title; // 같은 메모리 주소 공유
+        title = other.title;
+        is_owner = false;
     }
 
-    // 소멸자
-    ~Book() {
-        delete[] title; // 하나의 객체가 해제하면 다른 것도 영향을 받음
-    }
-
+   
     void print() {
-        cout << "제목: " << title << " (주소: " << static_cast<void*>(title) << ")" << endl;
+        cout << "제목: " << title
+            << " (주소: " << static_cast<void*>(title)
+            << ", is_owner: " << is_owner << ")" << endl;
     }
 };
 
 int main() {
     Book a("C++ 프로그래밍");
-    Book b = a; // 얕은 복사
+    Book b = a;
 
-    cout << "[얕은 복사]" << endl;
+    cout << "[얕은 복사 + strcpy_s]" << endl;
     a.print();
-    b.print(); // 같은 주소 출력
+    b.print();
 
-    return 0; // 여기서 double free 오류 발생 가능
+    return 0;
 }
