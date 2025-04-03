@@ -67,6 +67,10 @@ public:
     {
         string sql = "INSERT INTO person (name, pnumber) VALUES (?, ?);";
         sqlite3_stmt* stmt;
+        //한 번 준비된 stmt는 여러 번 bind와 step을 반복해서 재사용 가능합니다.
+        //쿼리문을 단순하고 일관된게 사용이 가능합니다. 그렇지 않으면
+        // '?'대신 쿼리문을 +와 변수로 이어서 동작되게 만들어야 합니다.
+        // ex) no = " + no + ";"; //SQL 인젝션 문제가 발생될 수 있습니다. 보안위험 
         sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, nullptr);
         sqlite3_bind_text(stmt, 1, name.c_str(), -1, SQLITE_STATIC);
         sqlite3_bind_text(stmt, 2, phone.c_str(), -1, SQLITE_STATIC);
