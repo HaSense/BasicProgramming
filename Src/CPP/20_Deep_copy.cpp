@@ -9,14 +9,16 @@ public:
 
     // 생성자
     Book(const char* t) {
-        title = new char[strlen(t) + 1];
-        strcpy(title, t);
+        size_t len = strlen(t) + 1;
+        title = new char[len];
+        strcpy_s(title, len, t); // MSVC 보안 함수 사용
     }
 
     // 깊은 복사 생성자
     Book(const Book& other) {
-        title = new char[strlen(other.title) + 1]; // 메모리 새로 할당
-        strcpy(title, other.title);                // 내용 복사
+        size_t len = strlen(other.title) + 1;
+        title = new char[len];
+        strcpy_s(title, len, other.title); // MSVC 보안 함수 사용
     }
 
     // 소멸자
